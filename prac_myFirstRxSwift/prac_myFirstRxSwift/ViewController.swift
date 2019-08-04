@@ -20,22 +20,59 @@ class ViewController: UIViewController {
     
     var disposeBag = DisposeBag()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         bindUI()
     }
     
+    //BehaviorSubject는 최근값을 저장해주는 역할 (처음값)디폴트 설정가능
+    let idValid :BehaviorSubject<Bool> = BehaviorSubject(value: false)
+    let pwValid :BehaviorSubject<Bool> = BehaviorSubject(value: false)
+    
+    let idText :BehaviorSubject<String> = BehaviorSubject(value: "")
+    let pwText :BehaviorSubject<String> = BehaviorSubject(value: "")
+    
     private func bindUI() {
         
         //input  아이디 입력, 비밀번호 입력
+        
+        idTextField.rx.text.orEmpty
+            .bind(to: idText)
+            .disposed(by: disposeBag)
+        
+        idText.map(checkId)
+            .bind(to: idValid)
+            .disposed(by: disposeBag)
+        
+        pwTextField.rx.text.orEmpty
+            .bind(to: pwText)
+            .disposed(by: disposeBag)
+        
+        pwText.map(checkPw)
+            .bind(to: pwValid)
+            .disposed(by: disposeBag)
+        
+        
+        
+        
+        
+        
+        /*
         let idInputOb = idTextField.rx.text.orEmpty.asObservable()
         let idCheckOb = idInputOb.map(checkId)
-        
+
+        idInputOb.map(checkId)
+            .bind(to: idValid)
+            .disposed(by: disposeBag)
+
         let pwInputOb = pwTextField.rx.text.orEmpty.asObservable()
         let pwCheckOb = pwInputOb.map(checkPw)
+
         
-        //output 상태컬러, 로그인버튼 활성화
+        output 상태컬러, 로그인버튼 활성화
         idCheckOb.subscribe(onNext: { b in
             if b {
                 self.idColorView.backgroundColor = UIColor.blue
@@ -44,7 +81,7 @@ class ViewController: UIViewController {
             }
         })
             .disposed(by: disposeBag)
-        
+
         pwCheckOb.subscribe(onNext: { b in
             if b {
                 self.pwColorView.backgroundColor = UIColor.blue
@@ -53,11 +90,12 @@ class ViewController: UIViewController {
             }
         })
             .disposed(by: disposeBag)
-        
+
         Observable.combineLatest(idCheckOb, pwCheckOb, resultSelector: {$0 && $1})
-        .subscribe(onNext: {b in self.loginBtn.isEnabled = b})
-        .disposed(by: disposeBag)
-        
+            .subscribe(onNext: {b in self.loginBtn.isEnabled = b})
+            .disposed(by: disposeBag)
+
+         */
         
         
         
