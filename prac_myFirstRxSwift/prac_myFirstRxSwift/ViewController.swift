@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         let idCheckOb = idInputOb.map(checkId)
         
         let pwInputOb = pwTextField.rx.text.orEmpty.asObservable()
-        let pwCheckOb = idInputOb.map(checkPw)
+        let pwCheckOb = pwInputOb.map(checkPw)
         
         //output 상태컬러, 로그인버튼 활성화
         idCheckOb.subscribe(onNext: { b in
