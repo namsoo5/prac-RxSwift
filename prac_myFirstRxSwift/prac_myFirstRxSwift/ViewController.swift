@@ -25,7 +25,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bindUI()
+        bindInput()
+        bindOutput()
     }
     
     //BehaviorSubject는 최근값을 저장해주는 역할 (처음값)디폴트 설정가능
@@ -35,7 +36,7 @@ class ViewController: UIViewController {
     let idText :BehaviorSubject<String> = BehaviorSubject(value: "")
     let pwText :BehaviorSubject<String> = BehaviorSubject(value: "")
     
-    private func bindUI() {
+    private func bindInput() {
         
         //input  아이디 입력, 비밀번호 입력
         
@@ -56,10 +57,6 @@ class ViewController: UIViewController {
             .disposed(by: disposeBag)
         
         
-        
-        
-        
-        
         /*
         let idInputOb = idTextField.rx.text.orEmpty.asObservable()
         let idCheckOb = idInputOb.map(checkId)
@@ -70,9 +67,37 @@ class ViewController: UIViewController {
 
         let pwInputOb = pwTextField.rx.text.orEmpty.asObservable()
         let pwCheckOb = pwInputOb.map(checkPw)
-
+         */
+    }
         
-        output 상태컬러, 로그인버튼 활성화
+    private func bindOutput(){
+        //output 상태컬러, 로그인버튼 활성화
+        
+        idValid.subscribe(onNext: {b in
+            if b {
+                self.idColorView.backgroundColor = UIColor.blue
+            }else {
+                self.idColorView.backgroundColor = UIColor.red
+            }
+        })
+            .disposed(by: disposeBag)
+        
+        pwValid.subscribe(onNext: {b in
+            if b {
+                self.pwColorView.backgroundColor = UIColor.blue
+            }else {
+                self.pwColorView.backgroundColor = UIColor.red
+            }
+        })
+            .disposed(by: disposeBag)
+        
+        Observable.combineLatest(idValid, pwValid, resultSelector: {$0 && $1})
+            .subscribe(onNext: {b in self.loginBtn.isEnabled = b})
+            .disposed(by: disposeBag)
+        
+        
+        
+        /*
         idCheckOb.subscribe(onNext: { b in
             if b {
                 self.idColorView.backgroundColor = UIColor.blue
