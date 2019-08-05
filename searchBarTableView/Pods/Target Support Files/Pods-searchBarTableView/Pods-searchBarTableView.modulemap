@@ -1,0 +1,6 @@
+framework module Pods_searchBarTableView {
+  umbrella header "Pods-searchBarTableView-umbrella.h"
+
+  export *
+  module * { export * }
+}
