@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		0615E63822F815ED00473A2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0615E63622F815ED00473A2E /* Main.storyboard */; };
 		0615E63A22F815EE00473A2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0615E63922F815EE00473A2E /* Assets.xcassets */; };
 		0615E63D22F815EE00473A2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0615E63B22F815EE00473A2E /* LaunchScreen.storyboard */; };
+		0615E64522F820D600473A2E /* searchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0615E64422F820D600473A2E /* searchTableViewCell.swift */; };
 		55BF44B377313D443F2DB06E /* Pods_searchBarTableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4EC5F2CEF218E755C30A584 /* Pods_searchBarTableView.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		0615E63922F815EE00473A2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0615E63C22F815EE00473A2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0615E63E22F815EE00473A2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0615E64422F820D600473A2E /* searchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchTableViewCell.swift; sourceTree = "<group>"; };
 		B31A76A2A0A8C11A1FD33920 /* Pods-searchBarTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-searchBarTableView.debug.xcconfig"; path = "Target Support Files/Pods-searchBarTableView/Pods-searchBarTableView.debug.xcconfig"; sourceTree = "<group>"; };
 		B4EC5F2CEF218E755C30A584 /* Pods_searchBarTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_searchBarTableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E012108CBC6111F77AF4CCA1 /* Pods-searchBarTableView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-searchBarTableView.release.xcconfig"; path = "Target Support Files/Pods-searchBarTableView/Pods-searchBarTableView.release.xcconfig"; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				0615E63222F815ED00473A2E /* AppDelegate.swift */,
 				0615E63422F815ED00473A2E /* ViewController.swift */,
 				0615E63622F815ED00473A2E /* Main.storyboard */,
+				0615E64422F820D600473A2E /* searchTableViewCell.swift */,
 				0615E63922F815EE00473A2E /* Assets.xcassets */,
 				0615E63B22F815EE00473A2E /* LaunchScreen.storyboard */,
 				0615E63E22F815EE00473A2E /* Info.plist */,
@@ -85,7 +88,6 @@
 				B31A76A2A0A8C11A1FD33920 /* Pods-searchBarTableView.debug.xcconfig */,
 				E012108CBC6111F77AF4CCA1 /* Pods-searchBarTableView.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -206,6 +208,7 @@
 			files = (
 				0615E63522F815ED00473A2E /* ViewController.swift in Sources */,
 				0615E63322F815ED00473A2E /* AppDelegate.swift in Sources */,
+				0615E64522F820D600473A2E /* searchTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
