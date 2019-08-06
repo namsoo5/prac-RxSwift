@@ -92,6 +92,7 @@
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="F86-SI-KCk" id="r4h-Ry-iYA"/>
+                        <outlet property="selectLabel" destination="ZV7-CQ-rZH" id="do8-UC-S2J"/>
                         <outlet property="tableView" destination="zRL-B3-sBy" id="cPZ-CI-CYJ"/>
                     </connections>
                 </viewController>

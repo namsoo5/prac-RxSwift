@@ -14,6 +14,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var selectLabel: UILabel!
     
     var items = [String]()
     let samples = ["서울", "부산", "온수", "건대", "온수", "부천", "송파", "가", "가나", "가나다", "가나다라", "가카타파하", "에이", "a", "ab", "abc", "apple", "mac", "azxy"]
@@ -40,6 +41,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         cell.blueText.text = self.items[indexPath.row]
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell: searchTableViewCell = tableView.cellForRow(at: indexPath) as? searchTableViewCell else { return }
+        self.selectLabel.text = cell.blueText.text
     }
     
 }
