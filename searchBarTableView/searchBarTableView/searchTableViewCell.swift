@@ -9,8 +9,8 @@
 import UIKit
 
 class searchTableViewCell: UITableViewCell {
-    @IBOutlet weak var textLabel: UILabel!
     
+    @IBOutlet weak var blueText: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,3 +23,4 @@ class searchTableViewCell: UITableViewCell {
     }
 
 }
+

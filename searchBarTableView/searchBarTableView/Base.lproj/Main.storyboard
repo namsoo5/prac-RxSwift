@@ -29,10 +29,10 @@
                                     <constraint firstAttribute="height" constant="500" id="YmH-M4-Gky"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="68" id="aKE-8z-7TE" customClass="searchTableViewCell" customModule="searchBarTableView" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="item" rowHeight="68" id="aKE-8z-7TE" customClass="searchTableViewCell" customModule="searchBarTableView" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="item" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aKE-8z-7TE" id="6oQ-22-uhl">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aKE-8z-7TE" id="6oQ-22-uhl">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="67.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -53,7 +53,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="textLabel" destination="snM-7s-Eg3" id="OaA-QO-XZK"/>
+                                            <outlet property="blueText" destination="snM-7s-Eg3" id="MTR-O6-9pt"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -90,6 +90,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="F86-SI-KCk" id="r4h-Ry-iYA"/>
+                        <outlet property="tableView" destination="zRL-B3-sBy" id="cPZ-CI-CYJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
