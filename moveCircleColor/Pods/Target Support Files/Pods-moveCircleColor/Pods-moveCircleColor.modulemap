@@ -1,0 +1,6 @@
+module Pods_moveCircleColor {
+  umbrella header "Pods-moveCircleColor-umbrella.h"
+
+  export *
+  module * { export * }
+}
