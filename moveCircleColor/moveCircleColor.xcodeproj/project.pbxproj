@@ -12,6 +12,7 @@
 		06DC7CD823012A8100B66E98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06DC7CD623012A8100B66E98 /* Main.storyboard */; };
 		06DC7CDA23012A8200B66E98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06DC7CD923012A8200B66E98 /* Assets.xcassets */; };
 		06DC7CDD23012A8200B66E98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06DC7CDB23012A8200B66E98 /* LaunchScreen.storyboard */; };
+		06DC7CE52301375D00B66E98 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DC7CE42301375D00B66E98 /* File.swift */; };
 		67970F97A46D1D7FA4809722 /* libPods-moveCircleColor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB6ED4459881AEBCA17FBD48 /* libPods-moveCircleColor.a */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		06DC7CD923012A8200B66E98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		06DC7CDC23012A8200B66E98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06DC7CDE23012A8200B66E98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06DC7CE42301375D00B66E98 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		1F8886CD89F64053A6481062 /* Pods-moveCircleColor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moveCircleColor.release.xcconfig"; path = "Target Support Files/Pods-moveCircleColor/Pods-moveCircleColor.release.xcconfig"; sourceTree = "<group>"; };
 		EB6ED4459881AEBCA17FBD48 /* libPods-moveCircleColor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-moveCircleColor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE547D3F5711F9E434DB530A /* Pods-moveCircleColor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moveCircleColor.debug.xcconfig"; path = "Target Support Files/Pods-moveCircleColor/Pods-moveCircleColor.debug.xcconfig"; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				06DC7CD223012A8100B66E98 /* AppDelegate.swift */,
 				06DC7CD423012A8100B66E98 /* ViewController.swift */,
 				06DC7CD623012A8100B66E98 /* Main.storyboard */,
+				06DC7CE42301375D00B66E98 /* File.swift */,
 				06DC7CD923012A8200B66E98 /* Assets.xcassets */,
 				06DC7CDB23012A8200B66E98 /* LaunchScreen.storyboard */,
 				06DC7CDE23012A8200B66E98 /* Info.plist */,
@@ -85,7 +88,6 @@
 				EE547D3F5711F9E434DB530A /* Pods-moveCircleColor.debug.xcconfig */,
 				1F8886CD89F64053A6481062 /* Pods-moveCircleColor.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -187,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06DC7CD523012A8100B66E98 /* ViewController.swift in Sources */,
+				06DC7CE52301375D00B66E98 /* File.swift in Sources */,
 				06DC7CD323012A8100B66E98 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
