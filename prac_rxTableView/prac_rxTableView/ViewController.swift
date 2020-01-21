@@ -16,7 +16,7 @@ struct MySection {
     var items: [Item]
 }
 
-// section binding
+// section Model
 extension MySection: AnimatableSectionModelType {
     typealias Item = Int
     
@@ -34,24 +34,22 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var random: UIButton!
-    
+
     let disposeBag = DisposeBag()
     var dataSource: RxTableViewSectionedReloadDataSource<MySection>!
     var sections = [
-        MySection(header: "First Section", items: [1, 2, 3]),
-        MySection(header: "Second Section", items: [4, 5])
+        MySection(header: "A", items: [1, 2, 3]),
+        MySection(header: "B", items: [4, 5])
     ]
-    let subject = PublishSubject<[MySection]>()
+    private var subject: BehaviorRelay<[MySection]> = BehaviorRelay(value: [])
     override func viewDidLoad() {
         super.viewDidLoad()
-        //
-        //        var sections = [
-        //            MySection(header: "First Section", items: [1, 2, 3]),
-        //            MySection(header: "Second Section", items: [4, 5])
-        //        ]
-        
+
+        // tableView 정의
         let nib = UINib(nibName: "TestTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "TestCell")
+        
+        // dataSource 정의
         let dataSource = RxTableViewSectionedReloadDataSource<MySection>(
             configureCell: { dataSource, tableView, indexPath, item in
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TestCell", for: indexPath) as! TestTableViewCell
@@ -59,38 +57,44 @@ class ViewController: UIViewController {
                 cell.testLabel?.text = "Item \(item)"
                 return cell
         })
+        
+        // 처음값 초기화
+        subject.accept(sections)
+        
+        //섹션 문자
         dataSource.titleForHeaderInSection = { ds, index in
             return ds.sectionModels[index].header
         }
-        self.dataSource = dataSource
-        Observable.just(sections)
-            .bind(to: tableView.rx.items(dataSource: dataSource))
-            .disposed(by: disposeBag)
         
+        //오른쪽 인디케이터 문자
+        dataSource.sectionIndexTitles = { ds in
+            return ds.sectionModels.map { $0.header }
+        }
+        
+        //오른쪽 인디케이터 문자와 인덱스참조가능
+        dataSource.sectionForSectionIndexTitle = { ds, title, index in
+            print(title)
+            print(index)
+            return ds.sectionModels.map { $0.header }.firstIndex(of: title) ?? 0
+        }
+        
+        self.dataSource = dataSource
+        
+        // delegate 사용을 위한 선언
         tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
         
-        subject.observeOn(MainScheduler.instance)
-            .subscribe(onNext: { items in
-                print(items)
-                self.sections = items
-                
-            //datasource refresh?
-                
-                self.tableView.reloadData()
-            })
+        // binding
+        subject
+            .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
-        
     }
+    
     @IBAction func randomAction(_ sender: Any) {
-        sections = [
-            MySection(header: "First Section", items: [6, 7, 8]),
-            MySection(header: "Second Section", items: [4, 5])
-        ]
-        
-        subject.onNext(sections)
-        
+        sections.append(MySection(header: "C", items: [6, 7, 8]))
+        sections.append(MySection(header: "D", items: [4, 5]))
+        subject.accept(sections)
     }
 }
 
